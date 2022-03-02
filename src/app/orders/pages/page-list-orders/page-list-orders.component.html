@@ -1,0 +1,16 @@
+<app-template-full-width title="Liste des commandes" *ngIf="collection$ | async as collection">
+  <app-table-light [headers]="headers">
+    <tr *ngFor="let order of collection">
+      <td>{{ order.id }}</td>
+      <td>{{ order.label}}</td>
+      <td>{{ order.tjmht}}</td>
+      <td>{{ order.dureejours}}</td>
+      <td>{{ order.tva}}</td>
+      <td>{{ order.statut}}</td>
+      <td>{{ order.typecommande}}</td>
+      <td>{{ order.notes}}</td>
+      <td>{{ order.idclient}}</td>
+    </tr>
+  </app-table-light>
+  <app-btn label="ajouter commande" route="add"></app-btn>
+</app-template-full-width>

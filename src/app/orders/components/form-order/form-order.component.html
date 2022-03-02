@@ -1,0 +1,46 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="label">Label</label>
+    <input type="text" class="form-control" id="label" formControlName="label">
+  </div>
+
+  <div class="form-group">
+    <label for="tjmht">tjmht</label>
+    <input type="number" class="form-control" id="tjmht" formControlName="tjmht">
+  </div>
+
+  <div class="form-group">
+    <label for="dureeJours">nb Jours</label>
+    <input type="number" class="form-control" id="dureeJours" formControlName="dureeJours">
+  </div>
+
+  <div class="form-group">
+    <label for="tva">TVA</label>
+    <input type="number" class="form-control" id="tva" formControlName="tva">
+  </div>
+
+  <div class="form-group">
+    <label for="state">Statut</label>
+    <select class="form-control" id="state" formControlName="statut">
+      <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="type">Type</label>
+    <select class="form-control" id="type" formControlName="typeCommande">
+      <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="notes">Notes</label>
+    <textarea class="form-control" id="notes" formControlName="notes"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="idClient"># Client</label>
+    <input type="number" class="form-control" id="idClient" formControlName="idClient">
+  </div>
+  <button type="submit" class="btn btn-primary">Envoyer</button>
+</form>

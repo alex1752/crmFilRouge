@@ -1,0 +1,16 @@
+<app-template-full-width title="Liste des clients" *ngIf="collection$ | async as collection">
+  <app-table-light [headers]="headers">
+    <tr *ngFor="let client of collection">
+      <td><a routerLink="display">{{ client.id }}</a></td>
+      <td>{{ client.nom}}</td>
+      <td>{{ client.prenom}}</td>
+      <td>{{ client.entreprise}}</td>
+      <td>{{ client.email}}</td>
+      <td>{{ client.telephone}}</td>
+      <td>{{ client.mobile}}</td>
+      <td>{{ client.actif}}</td>
+      <td>{{ client.notes}}</td>
+    </tr>
+  </app-table-light>
+  <app-btn label="ajouter client" route="add"></app-btn>
+</app-template-full-width>
