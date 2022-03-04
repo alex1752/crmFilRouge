@@ -26,17 +26,17 @@ export class FormOrderComponent implements OnInit {
     this.form = this.formBuilder.group({
       label: [this.init.label],
       tjmht: [this.init.tjmht],
-      dureeJours: [this.init.dureejours],
+      dureejours: [this.init.dureejours],
       tva: [this.init.tva],
       statut: [this.init.statut],
-      typeCommande: [this.init.typecommande],
+      typecommande: [this.init.typecommande],
       notes: [this.init.notes],
-      idClient: [this.init.idclient],
+      idclient: [this.init.idclient],
+      id: [this.init.id],
     });
   }
 
   public onSubmit() {
     this.submitted.emit(this.form.value); // creer un evenement submitted et initialise le flux
-    console.log(this.form.value);
   }
 }

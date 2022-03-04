@@ -1,4 +1,4 @@
 export enum TypeOrder {
-  FORMATION = 'Formation',
-  PRESTATION = 'Prestation',
+  FORMATION = 'FORMATION',
+  PRESTATION = 'PRESTATION',
 }

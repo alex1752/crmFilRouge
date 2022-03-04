@@ -1,5 +1,3 @@
-import { StateClients } from '../enums/state-clients';
-
 export interface ClientI {
   id: number;
   nom: string;
@@ -8,6 +6,6 @@ export interface ClientI {
   email: string;
   telephone: string;
   mobile: string;
-  actif: StateClients;
+  actif: boolean;
   notes: string;
 }

@@ -18,4 +18,20 @@ export class ClientsService {
     this.urlApi = environment.urlApi;
     this.collection$ = this.httpClient.get<Client[]>(`${this.urlApi}/client`);
   }
+
+  public changeState(item: Client, state: boolean): Observable<Client> {
+    const obj = new Client({ ...item });
+    obj.actif = state;
+    // obj.idClient = item.id;
+    console.log(obj);
+    return this.update(obj);
+  }
+
+  public update(item: Client): Observable<Client> {
+    return this.httpClient.put<Client>(`${this.urlApi}/client`, item);
+  }
+
+  public add(item: Client): Observable<Client> {
+    return this.httpClient.post<Client>(`${this.urlApi}/client`, item);
+  }
 }

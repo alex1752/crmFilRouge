@@ -1,6 +1,5 @@
-import { StateClients } from "../enums/state-clients";
-
 export class Client {
+  // idClient!: number;
   id!: number;
   nom!: string;
   prenom!: string;
@@ -8,7 +7,7 @@ export class Client {
   email!: string;
   telephone!: string;
   mobile!: string;
-  actif!: StateClients;
+  actif = true;
   notes!: string;
   constructor(obj?: Partial<Client>) {
     if (obj) {

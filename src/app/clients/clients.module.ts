@@ -6,6 +6,7 @@ import { PageAddClientComponent } from './pages/page-add-client/page-add-client.
 import { PageEditClientComponent } from './pages/page-edit-client/page-edit-client.component';
 import { PageListClientsComponent } from './pages/page-list-clients/page-list-clients.component';
 import { PageDisplayClientComponent } from './pages/page-display-client/page-display-client.component';
+import { FormClientComponent } from './components/form-client/form-client.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { PageDisplayClientComponent } from './pages/page-display-client/page-dis
     PageEditClientComponent,
     PageListClientsComponent,
     PageDisplayClientComponent,
+    FormClientComponent,
   ],
   imports: [CommonModule, ClientsRoutingModule, SharedModule],
   exports: [

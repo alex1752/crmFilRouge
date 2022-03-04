@@ -11,9 +11,13 @@ import { ClientsService } from '../../services/clients.service';
 export class PageListClientsComponent implements OnInit {
   public headers: string[];
   public collection$!: Observable<Client[]>;
-  public states!: string[];
-  constructor(private clientService: ClientsService) {
+  public states!: boolean[];
+
+  constructor(private clientsService: ClientsService) {
+    this.collection$ = this.clientsService.collection$;
+    this.states = [true, false];
     this.headers = [
+      'Actions',
       '#',
       'Nom',
       'Prenom',
@@ -24,8 +28,15 @@ export class PageListClientsComponent implements OnInit {
       'Actif',
       'Notes',
     ];
-    this.collection$ = clientService.collection$;
   }
 
   ngOnInit(): void {}
+
+  public changeState(item: Client, event: any): void {
+    const state = event.target.value;
+    this.clientsService.changeState(item, state).subscribe((data) => {
+      item = data;
+      console.log(item);
+    });
+  }
 }

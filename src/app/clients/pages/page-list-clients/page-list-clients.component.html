@@ -1,14 +1,26 @@
 <app-template-full-width title="Liste des clients" *ngIf="collection$ | async as collection">
   <app-table-light [headers]="headers">
     <tr *ngFor="let client of collection">
-      <td><a routerLink="display">{{ client.id }}</a></td>
+      <td>
+        <a>
+          <app-icon-edit></app-icon-edit>
+        </a>
+        <app-icon-delete></app-icon-delete>
+      </td>
+      <td><a routerLink=" display">{{ client.id }}</a></td>
       <td>{{ client.nom}}</td>
       <td>{{ client.prenom}}</td>
       <td>{{ client.entreprise}}</td>
       <td>{{ client.email}}</td>
       <td>{{ client.telephone}}</td>
       <td>{{ client.mobile}}</td>
-      <td>{{ client.actif}}</td>
+      <td>
+        <select class="form-select" aria-label="Default select example" (change)="changeState(client, $event)">
+          <option *ngFor="let state of states" [selected]="state === client.actif" [value]='state'>{{ state.toString() |
+            uppercase
+            }}</option>
+        </select>
+      </td>
       <td>{{ client.notes}}</td>
     </tr>
   </app-table-light>

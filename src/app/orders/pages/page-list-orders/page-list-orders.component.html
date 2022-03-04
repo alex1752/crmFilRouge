@@ -1,13 +1,30 @@
 <app-template-full-width title="Liste des commandes" *ngIf="collection$ | async as collection">
   <app-table-light [headers]="headers">
     <tr *ngFor="let order of collection">
+      <td>
+        <a>
+          <app-icon-edit></app-icon-edit>
+        </a>
+        <app-icon-delete></app-icon-delete>
+      </td>
       <td>{{ order.id }}</td>
       <td>{{ order.label}}</td>
-      <td>{{ order.tjmht}}</td>
       <td>{{ order.dureejours}}</td>
-      <td>{{ order.tva}}</td>
-      <td>{{ order.statut}}</td>
-      <td>{{ order.typecommande}}</td>
+      <td>{{ order.tjmht | currency}}</td>
+      <td>{{ order.tjmht | total : order.dureejours | currency}}</td>
+      <td>{{ order.tjmht | total : order.dureejours : order.tva | currency }}</td>
+      <td>
+        <select class="form-select" aria-label="Default select example" (change)="changeState(order, $event)">
+          <option *ngFor="let state of states" [selected]='state === order.statut' [value]='state'>{{ state | uppercase
+            }}</option>
+        </select>
+      </td>
+      <td>
+        <select class="form-select" aria-label="Default select example" (change)="changeType(order, $event)">
+          <option *ngFor="let type of types" [selected]='type === order.typecommande' [value]='type'>{{ type | uppercase
+            }}</option>
+        </select>
+      </td>
       <td>{{ order.notes}}</td>
       <td>{{ order.idclient}}</td>
     </tr>
