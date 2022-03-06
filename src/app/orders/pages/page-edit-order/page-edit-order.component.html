@@ -1,1 +1,4 @@
-<p>page-edit-order works!</p>
+<app-template-container title="Modifier commande">
+  <app-form-order [init]="order[0]" (submitted)="action($event)" *ngIf="order$ | async as order">
+  </app-form-order>
+</app-template-container>

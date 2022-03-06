@@ -34,4 +34,14 @@ export class ClientsService {
   public add(item: Client): Observable<Client> {
     return this.httpClient.post<Client>(`${this.urlApi}/client`, item);
   }
+
+  public getItemById(id: number) {
+    return this.httpClient.get<Client[]>(`${this.urlApi}/client?id=${id}`);
+  }
+
+  public delete(item: Client): Observable<any> {
+    return this.httpClient.delete(`${this.urlApi}/client?id=${item.id}`, {
+      responseType: 'text' as const,
+    });
+  }
 }

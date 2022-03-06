@@ -12,6 +12,18 @@ import { environment } from 'src/environments/environment';
 export class OrdersService {
   private urlApi: string;
   public collection$: Observable<Order[]>;
+  // private httpOptions = {
+  //   headers: new HttpHeaders({
+  //     Accept: 'text/html, application/xhtml+xml, */*',
+  //     'Content-Type': 'application/x-www-form-urlencoded',
+  //   }),
+  //   responseType: 'text',
+  // };
+
+  // private headers = new HttpHeaders({
+  //   Accept: 'text/html, application/xhtml+xml, */*',
+  //   'Content-Type': 'application/x-www-form-urlencoded',
+  // });
 
   constructor(private httpClient: HttpClient) {
     this.urlApi = environment.urlApi;
@@ -36,5 +48,15 @@ export class OrdersService {
 
   public add(item: Order): Observable<Order> {
     return this.httpClient.post<Order>(`${this.urlApi}/commande`, item);
+  }
+
+  public delete(item: Order): Observable<any> {
+    return this.httpClient.delete(`${this.urlApi}/commande?id=${item.id}`, {
+      responseType: 'text' as const,
+    });
+  }
+
+  public getItemById(id: number) {
+    return this.httpClient.get<Order[]>(`${this.urlApi}/commande?id=${id}`);
   }
 }

@@ -1,13 +1,15 @@
-<app-template-full-width title="Liste des clients" *ngIf="collection$ | async as collection">
+<app-template-full-width title="Liste des clients" *ngIf="collection">
   <app-table-light [headers]="headers">
     <tr *ngFor="let client of collection">
       <td>
-        <a>
+        <a (click)="goToEdit(client)">
           <app-icon-edit></app-icon-edit>
         </a>
-        <app-icon-delete></app-icon-delete>
+        <a (click)="delete(client)">
+          <app-icon-delete></app-icon-delete>
+        </a>
       </td>
-      <td><a routerLink=" display">{{ client.id }}</a></td>
+      <td>{{ client.id }}</td>
       <td>{{ client.nom}}</td>
       <td>{{ client.prenom}}</td>
       <td>{{ client.entreprise}}</td>

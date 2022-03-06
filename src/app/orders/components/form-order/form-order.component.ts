@@ -34,6 +34,12 @@ export class FormOrderComponent implements OnInit {
       idclient: [this.init.idclient],
       id: [this.init.id],
     });
+    console.log(this.form.value);
+    console.log(this.init);
+  }
+
+  ngOnDestroy() {
+    console.log(this.form.value);
   }
 
   public onSubmit() {

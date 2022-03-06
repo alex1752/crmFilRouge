@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StateOrder } from 'src/app/core/enums/state-order';
 import { TypeOrder } from 'src/app/core/enums/type-order';
@@ -13,9 +14,10 @@ import { OrdersService } from '../../services/orders.service';
 export class PageListOrdersComponent implements OnInit {
   public headers: string[];
   public collection$!: Observable<Order[]>;
+  public collection!: Order[];
   public states!: string[];
   public types!: string[];
-  constructor(private ordersService: OrdersService) {
+  constructor(private ordersService: OrdersService, private router: Router) {
     this.headers = [
       'Actions',
       '#',
@@ -29,7 +31,8 @@ export class PageListOrdersComponent implements OnInit {
       'Notes',
       '# Client',
     ];
-    this.collection$ = ordersService.collection$;
+    // this.collection$ = ordersService.collection$;
+    ordersService.collection$.subscribe((data) => (this.collection = data));
     this.states = Object.values(StateOrder);
     this.types = Object.values(TypeOrder);
   }
@@ -48,5 +51,22 @@ export class PageListOrdersComponent implements OnInit {
     this.ordersService
       .changeType(item, type)
       .subscribe((data) => (item = data));
+  }
+
+  public delete(item: Order) {
+    // this.ordersService
+    //   .delete(item)
+    //   .subscribe((data) => collection.filter((value) => value.id !== item.id));
+    this.ordersService
+      .delete(item)
+      .subscribe((data) =>
+        this.ordersService.collection$.subscribe(
+          (data2) => (this.collection = data2)
+        )
+      );
+  }
+
+  public goToEdit(item: Order) {
+    this.router.navigate([`orders/edit/${item.id}`]);
   }
 }
