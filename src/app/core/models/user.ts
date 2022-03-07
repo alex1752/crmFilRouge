@@ -1,7 +1,7 @@
 export class User {
   id!: number;
-  login!: string;
-  email!: string;
+  login = 'login';
+  email = 'user@example.com';
   motDePasse!: string;
   constructor(obj?: Partial<User>) {
     if (obj) {
