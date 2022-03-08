@@ -2,7 +2,7 @@
   <app-table-light [headers]="headers">
     <tr *ngFor="let client of collection">
       <td>
-        <a (click)="goToEdit(client)">
+        <a (click)="goToEdit(client.id)">
           <app-icon-edit></app-icon-edit>
         </a>
         <a (click)="delete(client)">
@@ -26,5 +26,5 @@
       <td>{{ client.notes}}</td>
     </tr>
   </app-table-light>
-  <app-btn label="ajouter client" route="add"></app-btn>
+  <app-btn label="Ajouter un client" route="add"></app-btn>
 </app-template-full-width>

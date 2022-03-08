@@ -2,7 +2,7 @@
   <app-table-light [headers]="headers">
     <tr *ngFor="let order of collection">
       <td>
-        <a (click)="goToEdit(order)">
+        <a (click)="goToEdit(order.id)">
           <app-icon-edit></app-icon-edit>
         </a>
         <a (click)="delete(order)">
@@ -31,5 +31,5 @@
       <td>{{ order.idclient}}</td>
     </tr>
   </app-table-light>
-  <app-btn label="ajouter commande" route="add"></app-btn>
+  <app-btn label="Ajouter une commande" route="add"></app-btn>
 </app-template-full-width>

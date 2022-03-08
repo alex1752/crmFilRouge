@@ -43,8 +43,8 @@ export class PageListClientsComponent implements OnInit {
     });
   }
 
-  public goToEdit(item: Client) {
-    this.router.navigate([`clients/edit/${item.id}`]);
+  public goToEdit(id: number) {
+    this.router.navigate(['clients', 'edit', id]);
   }
 
   public delete(item: Client) {

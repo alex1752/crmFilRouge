@@ -1,19 +1,22 @@
-<!-- bootsnipp.com -->
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
+<app-template-container title="Connexion">
 
-    <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+
+  <main class="form-signin">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h1 class="h3 mb-3 fw-normal">Connectez-vous :</h1>
+
+      <div class="form-floating">
+        <input type="text" class="form-control" id="login" placeholder="name@example.com" formControlName="login">
+        <label for="login">Login</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="motDePasse" placeholder="password" formControlName="motDePasse">
+        <label for="motDePasse">Password</label>
+      </div>
+
+      <div class="checkbox mb-3">
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     </form>
-
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>
-
-  </div>
-</div>
+  </main>
+</app-template-container>

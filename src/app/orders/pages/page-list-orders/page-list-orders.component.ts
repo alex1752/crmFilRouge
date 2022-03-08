@@ -66,7 +66,7 @@ export class PageListOrdersComponent implements OnInit {
       );
   }
 
-  public goToEdit(item: Order) {
-    this.router.navigate([`orders/edit/${item.id}`]);
+  public goToEdit(id: number) {
+    this.router.navigate(['orders', 'edit', id]);
   }
 }
