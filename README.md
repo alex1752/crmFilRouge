@@ -1,7 +1,9 @@
-This is an angular project that works with with another project : api-crm for the back
-
-
 # CrmFilRouge
+
+This is an angular project that works with another project (jee) : api-crm for the back.
+
+Check API_CRM_V3 - Docker folder to build a docker image.
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
