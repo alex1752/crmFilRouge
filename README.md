@@ -1,3 +1,6 @@
+This is an angular project that works with with another project : api-crm for the back
+
+
 # CrmFilRouge
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
