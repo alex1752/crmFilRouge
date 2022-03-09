@@ -1,0 +1,31 @@
+<app-template-full-width title="Détails du client">
+  <h2>Informations client</h2>
+  <app-table-light [headers]="headersClient" *ngIf="collectionClient">
+    <tr>
+      <td>{{ collectionClient[0].id }}</td>
+      <td>{{ collectionClient[0].nom}}</td>
+      <td>{{ collectionClient[0].prenom}}</td>
+      <td>{{ collectionClient[0].entreprise}}</td>
+      <td>{{ collectionClient[0].email}}</td>
+      <td>{{ collectionClient[0].telephone}}</td>
+      <td>{{ collectionClient[0].mobile}}</td>
+      <td>{{ collectionClient[0].actif.toString() | uppercase }}</td>
+      <td>{{ collectionClient[0].notes}}</td>
+    </tr>
+  </app-table-light>
+
+  <h2>Commandes client</h2>
+  <app-table-light [headers]="headersOrder" *ngIf="collectionOrder">
+    <tr *ngFor="let order of collectionOrder">
+      <td>{{ order.id }}</td>
+      <td>{{ order.label}}</td>
+      <td>{{ order.dureejours}}</td>
+      <td>{{ order.tjmht | currency}}</td>
+      <td>{{ order.tjmht | total : order.dureejours | currency}}</td>
+      <td>{{ order.tjmht | total : order.dureejours : order.tva | currency }}</td>
+      <td>{{ order.statut | uppercase }}</td>
+      <td>{{ order.typecommande | uppercase }}</td>
+      <td>{{ order.notes}}</td>
+    </tr>
+  </app-table-light>
+</app-template-full-width>

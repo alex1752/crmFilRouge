@@ -2,6 +2,9 @@
   <app-table-light [headers]="headers">
     <tr *ngFor="let client of collection">
       <td>
+        <a (click)="goToDisplay(client.id)">
+          <app-icon-info></app-icon-info>
+        </a>
         <a (click)="goToEdit(client.id)">
           <app-icon-edit></app-icon-edit>
         </a>
@@ -9,6 +12,7 @@
           <app-icon-delete></app-icon-delete>
         </a>
       </td>
+
       <td>{{ client.id }}</td>
       <td>{{ client.nom}}</td>
       <td>{{ client.prenom}}</td>

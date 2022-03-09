@@ -47,12 +47,16 @@ export class PageListClientsComponent implements OnInit {
     this.router.navigate(['clients', 'edit', id]);
   }
 
+  public goToDisplay(id: number) {
+    this.router.navigate(['clients', 'display', id]);
+  }
+
   public delete(item: Client) {
     this.clientsService
       .delete(item)
-      .subscribe((data) =>
+      .subscribe(() =>
         this.clientsService.collection$.subscribe(
-          (data2) => (this.collection = data2)
+          (data) => (this.collection = data)
         )
       );
   }
