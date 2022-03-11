@@ -6,6 +6,7 @@ import { PageForgotPasswordComponent } from './pages/page-forgot-password/page-f
 import { PageResetPasswordComponent } from './pages/page-reset-password/page-reset-password.component';
 import { PageSignInComponent } from './pages/page-sign-in/page-sign-in.component';
 import { PageSignUpComponent } from './pages/page-sign-up/page-sign-up.component';
+import { PageSignOutComponent } from './pages/page-sign-out/page-sign-out.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { PageSignUpComponent } from './pages/page-sign-up/page-sign-up.component
     PageResetPasswordComponent,
     PageSignInComponent,
     PageSignUpComponent,
+    PageSignOutComponent,
   ],
   imports: [CommonModule, LoginRoutingModule, SharedModule],
   exports: [
@@ -20,6 +22,7 @@ import { PageSignUpComponent } from './pages/page-sign-up/page-sign-up.component
     PageResetPasswordComponent,
     PageSignInComponent,
     PageSignUpComponent,
+    PageSignOutComponent,
   ],
 })
 export class LoginModule {}
