@@ -2,7 +2,7 @@ export class User {
   id!: number;
   login = 'login';
   email = 'user@example.com';
-  motDePasse!: string;
+  motDePasse = 'Password@1.';
   constructor(obj?: Partial<User>) {
     if (obj) {
       Object.assign(this, obj);
